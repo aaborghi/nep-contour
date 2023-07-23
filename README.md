@@ -9,7 +9,7 @@ and the single-point, multi-point, and one-sided-multi-point Loewner frameworks 
 
 
 For benchmarking the algorithms we adopted a 50x50 delay eigenvalue problem (see bigdae.py) and an example from the following publication (see testhospital.py)
->T. Betcke, N.J. Higham, V. Mehrmann, C. Schroeder, F. Tisseur, **NLEVP: A >Collection of Nonlinear Eigenvalue Problems**,_ACM Transactions in Mathematical Software_, (39)2, 1-28, (2013), https://dl.acm.org/doi/10.1145/2427023.2427024
+>T. Betcke, N.J. Higham, V. Mehrmann, C. Schroeder, F. Tisseur, **NLEVP: A Collection of Nonlinear Eigenvalue Problems**,_ACM Transactions in Mathematical Software_, (39)2, 1-28, (2013), https://dl.acm.org/doi/10.1145/2427023.2427024
 
 ## Installation and running
 Simply clone this repository with 
@@ -20,3 +20,4 @@ git clone git@github.com:aaborghi/nep-contour.git
 
 then run `test.py` to see if everything works as expected. A plot should pop-out showing the resulting eigenvalues matching the real ones. 
 For the ones that want to check the contour integral algorithms implementations look under `src/nlevpfunc.py`.
+
