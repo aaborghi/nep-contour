@@ -14,7 +14,9 @@ For benchmarking the algorithms we adopted a 50x50 delay eigenvalue problem (see
 ## Installation and running
 Simply clone this repository with 
 
-`git@github.com:aaborghi/nep-contour.git`
+```
+git clone git@github.com:aaborghi/nep-contour.git
+```
 
 then run `test.py` to see if everything works as expected. A plot should pop-out showing the resulting eigenvalues matching the real ones. 
 For the ones that want to check the contour integral algorithms implementations look under `src/nlevpfunc.py`.
