@@ -1,4 +1,7 @@
 # Contour integral eigensolvers for nonlinear eigenproblems
+## Prerequisites 
+- numpy, scipy, and matplotlib
+## Description
 This code is a simple implementation of contour integral eigensolvers. In particular, under `src/nlevpfunc.py` one can find Beyn's algorithm (see `hankel()`) from
 
 >W.J. Beyn, **An integral method for solving nonlinear eigenvalue problems**, _Linear Algebra and Applications_, (436)10, 3839-3863, (2012), https://doi.org/10.1016/j.laa.2011.03.030 
