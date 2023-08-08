@@ -62,7 +62,7 @@ l = lambertW(10,8,0.015*np.eye(n),-E0) #setup the lamberW function solver
 
 ## Benchmark function
 """
-Here we compute the absolute and relative error of the results of each
+Here we compute the maximum absolute and relative error of the results of each
 contour integral eigensolver for an increasing number of quadrature points
 """
 def bench(quadNodes):
@@ -106,26 +106,14 @@ for i in range(0,iterations):
     Eabs[0,i], Eabs[1,i], Eabs[2,i], Eabs[3,i], Tlambv[0,i], Tlambv[1,i], Tlambv[2,i], Tlambv[3,i] = bench(quadnodes[0,i])
 
 
-fig1 = plt.figure()
-plt.plot(quadnodes.ravel(), Eabs[0,:], 'r--', quadnodes.ravel(), Eabs[1,:], 'g-.', quadnodes.ravel(), Eabs[2,:], 'b-o', quadnodes.ravel(), Eabs[3,:], 'y-+') 
-plt.legend([r'Hankel', r'1Loew', r'multiLoew', r'singlemultiLoew'], loc='upper right')
-plt.xlabel(r'# Quadrature points')
-plt.ylabel(r'$\max_i|\lambda_i - \tilde{\lambda}_i|$')
-ax = plt.gca()
-ax.set_yscale('log')
-ax.set_xscale('log')
-fig1.set_size_inches(5, 3, forward=True)
+fig, (ax1, ax2) = plt.subplots(2, 1)
+ax1.plot(quadnodes.ravel(), Eabs[0,:], 'r--', quadnodes.ravel(), Eabs[1,:], 'g-.', quadnodes.ravel(), Eabs[2,:], 'b-o', quadnodes.ravel(), Eabs[3,:], 'y-+') 
+ax1.legend([r'Hankel', r'1Loew', r'multiLoew', r'singlemultiLoew'], loc='upper right')
+ax1.set(ylabel=r'maximum error')
+ax1.set_yscale('log')
+ax1.set_xscale('log')
+ax2.plot(quadnodes.ravel(), Tlambv[0,:], 'r--', quadnodes.ravel(), Tlambv[1,:], 'g-.', quadnodes.ravel(), Tlambv[2,:], 'b-o', quadnodes.ravel(), Tlambv[3,:], 'y-+') 
+ax2.set(xlabel=r'# quadrature points', ylabel=r'residual error')
+ax2.set_yscale('log')
+ax2.set_xscale('log')
 plt.show()
-plt.tight_layout()
-
-fig2 = plt.figure()
-plt.plot(quadnodes.ravel(), Tlambv[0,:], 'r--', quadnodes.ravel(), Tlambv[1,:], 'g-.', quadnodes.ravel(), Tlambv[2,:], 'b-o', quadnodes.ravel(), Tlambv[3,:], 'y-+') 
-plt.legend([r'Hankel', r'1Loew', r'multiLoew', r'singlemultiLoew'], loc='upper right')
-plt.xlabel(r'# Quadrature points')
-plt.ylabel(r'$\max_i\|T(\tilde{\lambda}_i)\tilde{v}_i\|_2/\|T(\tilde{\lambda}_i)\|_F$')
-ax = plt.gca()
-ax.set_yscale('log')
-ax.set_xscale('log')
-fig2.set_size_inches(5, 3, forward=True)
-plt.show()
-plt.tight_layout()
